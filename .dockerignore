@@ -1,0 +1,24 @@
+# Python / venv
+env/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / logs (you can still mount logs via compose)
+data/
+logs/
+
+# Git
+.git/
+.gitignore
+
+# Notebooks (optional - keep out of image)
+#notebooks/
+
+# OS files
+.DS_Store
+Thumbs.db

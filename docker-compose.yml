@@ -1,0 +1,12 @@
+services:
+  cifar10-web:
+    build: .
+    container_name: cifar10_cnn_webapp
+    ports:
+      - "8000:8000"
+    volumes:
+      # Optional: keep logs on your machine
+      - ./logs:/app/logs
+      # Optional: keep artifacts on your machine (model file)
+      - ./artifacts:/app/artifacts
+    restart: unless-stopped
