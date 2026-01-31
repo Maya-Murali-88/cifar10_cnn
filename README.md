@@ -1,3 +1,14 @@
+---
+title: CIFAR-10 CNN Classifier
+emoji: 🖼️
+colorFrom: purple
+colorTo: pink
+sdk: docker
+app_port: 8000
+pinned: false
+---
+
+
 # 🌟 CIFAR-10 Image Classification Web Application  
 ### **PyTorch · FastAPI · Docker · Hugging Face Spaces · MLOps-Ready**
 
@@ -106,17 +117,7 @@ App runs at:
 Already configured for **Docker SDK**.
 
 ### Required README header
-```yaml
----
-title: CIFAR-10 CNN Classifier
-emoji: 🖼️
-colorFrom: purple
-colorTo: pink
-sdk: docker
-app_port: 8000
-pinned: false
----
-```
+# Add yaml configuration on the top of readme file in the first line as above.
 
 ### Push to Space
 ```bash
