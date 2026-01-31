@@ -1,3 +1,112 @@
+# 🌟 CIFAR-10 Image Classification Web Application  
+### **PyTorch · FastAPI · Docker · Hugging Face Spaces · MLOps-Ready**
+
+A production-style, containerized deep-learning web application that performs **real-time image classification** on the CIFAR-10 dataset.  
+Built with **PyTorch**, **FastAPI**, and **Docker**, deployed on **Hugging Face Spaces (Docker SDK)**.
+
+This project demonstrates:
+- End-to-end ML pipeline (training → inference → deployment)  
+- Modular backend architecture  
+- Production-style inference pipeline  
+- Reproducibility with Docker  
+- Logging and error handling (MLOps-friendly)
+
+---
+
+## 🚀 Live Demo
+🔗 **https://huggingface.co/spaces/Smiyamaya/cifar10-cnn**
+
+---
+
+## 📸 About This Project
+
+This application classifies images into 10 CIFAR‑10 classes:
+
+> airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck
+
+Includes:
+- Clean web UI  
+- Image upload + preview  
+- Top prediction + confidence bar chart  
+- FastAPI backend  
+- PyTorch model inference  
+- Full Docker deployment  
+
+---
+
+# 🧠 Model Architecture
+
+### SimpleCNN (PyTorch)
+- 3× Convolutional layers  
+- ReLU activation  
+- MaxPooling layers  
+- Flatten  
+- 2× Fully connected layers  
+- Output: 10 classes  
+
+Achieves **70–75% accuracy** on CIFAR‑10.
+
+---
+
+# 📁 Project Layout
+
+```
+cifar10_cnn_webapp/
+│
+├── src/
+│   ├── app.py               # FastAPI app + HTML UI
+│   ├── model.py             # CNN model architecture
+│   ├── predictor.py         # Inference pipeline
+│   └── utils.py             # Logging + device helpers
+│
+├── artifacts/
+│   └── cnn_model.pth        # Trained model
+│
+├── notebooks/
+│   └── cifar10_cnn_classification.ipynb
+│
+├── logs/
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# 🛠️ Local Development
+
+### Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Start app
+```bash
+uvicorn src.app:app --reload
+```
+
+Open: http://localhost:8000
+
+---
+
+# 🐳 Docker Deployment
+
+### Build & run
+```bash
+docker compose up --build
+```
+
+App runs at:
+👉 **http://localhost:8000**
+
+---
+
+# 🚀 Deploying on Hugging Face Spaces  
+Already configured for **Docker SDK**.
+
+### Required README header
+```yaml
 ---
 title: CIFAR-10 CNN Classifier
 emoji: 🖼️
@@ -7,131 +116,38 @@ sdk: docker
 app_port: 8000
 pinned: false
 ---
+```
 
+### Push to Space
+```bash
+huggingface-cli login
+git remote add space https://huggingface.co/spaces/Smiyamaya/cifar10-cnn
+git push --force space main
+```
 
-📘 CIFAR-10 Image Classification — PyTorch CNN Project
+---
 
-A beginner-friendly deep learning project using PyTorch, torchvision, and a custom Convolutional Neural Network (CNN) to classify images from the CIFAR-10 dataset.
-This project includes:
+# 🔎 Logging & Monitoring
+Logs stored in:
+```
+logs/app.log
+```
 
-✔ Dataset loading & normalization
-✔ CNN architecture (Conv → ReLU → MaxPool → FC)
-✔ Training & evaluation
-✔ Visualization of predictions
-✔ Saving & loading model
-✔ Logging
-✔ Virtual environment setup
-✔ Clean project structure
-✔ (Optional) FastAPI web app for real-time prediction
+Tracks uploads, predictions, and errors.
 
+---
 
-🔧 Project Structure
-cifar10_cnn_webapp/
-├── src/
-│   ├── config.py
-│   ├── model.py
-│   ├── data.py
-│   ├── train.py
-│   ├── evaluate.py
-│   ├── visualize.py
-│   └── utils.py
-│
-├── artifacts/
-│   └── cnn_model.pth
-├── logs/
-│   ├── train.log
-├── requirements.txt
-├── .gitignore
-└── README.md
+# 🛠️ Tech Stack
 
-🧱 1. Setup Instructions
-✅ Step 1 — Create Virtual Environment
+- PyTorch  
+- FastAPI  
+- Docker  
+- Hugging Face Spaces  
+- HTML5 / CSS3  
+- Python 3.11  
 
-Windows:
+---
 
-python -m venv env
-env\Scripts\activate
-
-
-Mac/Linux:
-
-python3 -m venv env
-source env/bin/activate
-
-
-You should now see (env) before your terminal prompt.
-
-✅ Step 2 — Install Dependencies
-pip install -r requirements.txt
-
-
-This installs PyTorch + FastAPI + matplotlib + other essentials.
-
-✅ Step 3 — Train the CNN
-
-Inside src/:
-
-python train.py
-
-
-This will:
-
-download CIFAR-10
-
-normalize & load dataset
-
-train for the specified epochs
-
-evaluate after each epoch
-
-save best model → artifacts/cnn_model.pth
-
-generate logs → logs/train.log
-
-✅ Step 4 — Visualize Predictions
-python visualize.py
-
-
-This will display sample test images with:
-
-actual label
-
-predicted label
-
-✅ Step 5 — (Optional) Run Web App for Inference
-
-Coming next:
-
-uvicorn app:app --reload
-
-
-You will be able to upload an image → get model prediction.
-
-📊 2. Results
-
-Example output after training:
-
-Epoch 1/10 | Batch 100 | Loss: 1.72
-Epoch 1 Test Accuracy: 52.81%
-Epoch 2 Test Accuracy: 63.14%
-...
-Model saved successfully at artifacts/cnn_model.pth
-
-🧪 3. How to Load Trained Model (example)
-net = SimpleCNN()
-net.load_state_dict(torch.load("artifacts/cnn_model.pth"))
-net.eval()
-
-🔮 4. Future Improvements
-
-Add more CNN layers
-
-Use dropout for regularization
-
-Add data augmentation
-
-Replace CNN with ResNet-18
-
-Deploy the FastAPI backend
-
-Containerize using Docker
+# 🙌 Author
+**Maya Murali**  
+HuggingFace: https://huggingface.co/Smiyamaya  
